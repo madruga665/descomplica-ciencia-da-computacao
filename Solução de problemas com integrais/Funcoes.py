@@ -2,24 +2,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# def f(x):
-#     return np.sqrt(x)
+def f(x):
+    return np.sqrt(x)
 
 
-# x = np.linspace(0, 3, 400)
-# y = f(x)
+x = np.linspace(0, 3, 400)
+y = f(x)
 
-# plt.plot(x, y)
+plt.plot(x, y)
 
-# plt.title("Gráfico de $f(x) = \sqrt{x}$")
+plt.title("Gráfico de $f(x) = \sqrt{x}$")
 
-# plt.xlabel("x")
+plt.xlabel("x")
 
-# plt.ylabel("$f(x)$")
+plt.ylabel("$f(x)$")
 
-# plt.grid(True)
+plt.grid(True)
 
-# plt.show()
+plt.show()
 
 def test(x):
     return 2*x + 3
