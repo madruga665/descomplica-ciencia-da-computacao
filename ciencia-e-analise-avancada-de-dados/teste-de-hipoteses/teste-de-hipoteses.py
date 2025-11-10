@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
 
 # Geração de dados da população
 tamanho_populacao = 10000
@@ -8,14 +9,25 @@ lst_dados = []
 
 for i in range(2):
     dados = np.random.normal(loc=100, scale=10, size=tamanho_populacao)
+    plt.hist(dados)
+    plt.xlabel("Categorias")
+    plt.ylabel("Quantidade")
+    plt.hist(x=dados, bins="auto", color="#0805aa", alpha=0.7,rwidth=0.85, density=True)
+    plt.grid(axis="y", alpha=0.80)
+    plt.xlabel("Categorias")
+    plt.ylabel("Quantidades")
+    plt.title("Histograma das Amostras")
+    lst_dados.append(dados)
 
-plt.hist(dados);
-plt.xlabel("Categorias");
-plt.ylabel("Quantidade");
-plt.hist(x=dados, bins="auto", color="#0805aa", alpha=0.7,rwidth=0.85, density=True)
-plt.grid(axis="y", alpha=0.80)
-plt.xlabel("Categorias")
-plt.ylabel("Quantidades")
-plt.title("Histograma das Amostras")
-lst_dados.append(dados)
+dados1 = lst_dados[0]
+dados2 = lst_dados[1]
+estatistica, p_valor = ttest_ind(dados1, dados2)
+
+print(estatistica)
+print(p_valor)
+
+if p_valor > 0.05:
+ print("Aceita H0")
+else:
+ print("Rejeita H0")
 plt.show()
